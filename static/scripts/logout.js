@@ -29,8 +29,7 @@ var logoutFunction = function(){
         var logoutButton = document.getElementById('logoutButton');
 
         logoutButton.onclick = function(){
-                              sessionStorage.setItem('justUploaded', "");
-
+            sessionStorage.setItem('justUploaded', "");
             post('/logout', undefined, g.handleLogoutResult);
         }
 

@@ -1,0 +1,339 @@
+
+  // Global datastore
+  var notes;
+
+  var notecardPic = new Image();
+  notecardPic.src = "notecard.png";
+  var currentSet = "new";
+
+
+function createNewCanvas(){
+  var canvasId = new Date();
+  var frontText = "";
+  var frontDrawing = [];
+  var backText = "";
+  var backDrawing = [];
+  var side = "front";
+
+  add(canvasId, frontText, frontDrawing,
+                backText, backDrawing, side);  
+  get();
+}
+
+
+function clearCanvas(ctx,width,height){
+  ctx.clearRect(0,0,width,height);
+}
+
+
+function drawCanvas(noteList, id){
+  var card = noteList.id; 
+  var canvas = $("#c"+id);
+
+  var text;
+  var drawing;
+
+  var ctx = canvas.getContext("2d");
+  clearCanvas(ctx, canvas.width(), canvas.height());
+  if (card.side === "front"){
+    text = card.frontText;
+    drawing = card.frontDraw;
+    }
+  else{
+    text = card.backText;
+    drawing = card.backDraw;
+    }
+
+  ctx.drawImage(notecardPic, 0, 0, 600, 400);
+    addText(ctx, text, canvas.width(),canvas.height());
+    addCardDrawing(ctx, drawing);
+}
+
+
+function redrawNotes(){
+  var noteList = $("#allNotes");  
+  var current = $(".canvas");  
+  current.html("");  
+  for (i=0; i < canvas.length; i++){
+    var j = i;   // so splicing works out
+    var curCanvas = current[j];
+    var id = curCanvas.date;
+
+    var newItem = $("<li>");
+    newItem.attr("id","item"+id);
+
+    var canvasWrapper = $("<div>");
+    canvasWrapper.addClass("wrapper");
+    canvasWrapper.attr("id", "cw"+id);
+
+    var newCanvas = $("<canvas>");
+    newCanvas.addClass("canvas");
+    newCanvas.attr("id", "c"+id);
+    newCanvas.attr("height", "400px");
+    newCanvas.attr("width", "600px");
+
+    var flipButton = $("<div>");
+    flipButton.addClass("flipButton");
+    flipButton.html("Flip!")
+    flipButton.attr("id", "f"+canvasId);
+    flipButton.click(function(){
+      flipCard(id);
+    });
+
+    var optionButton = $("<div>");
+    optionButton.addClass("optionButton");
+    optionButton.html("Edit");
+    optionButton.attr("id", "e"+canvasId);
+    optionButton.click(function(){
+      var text = $("#e"+id).html();
+      noteCardButton(canvasId, text);
+    });
+
+  newItem.append(newCanvas);
+  newItem.append(flipButton);
+  newItem.append(optionButton);
+  newItem.append(canvasWrapper);
+
+  drawCanvas(noteList, id);
+
+  noteList.push(newItem);
+  }
+}
+
+function drawDrawer(id){
+  var canvasNum = id;
+  var newItem = $("#item"+id);
+  var drawButton = $("<div>");
+  drawButton.html("Free Draw");
+  drawButton.addClass("freeDrawButton");
+  drawButton.attr("id", "freeDraw"+id);
+  drawButton.click(function(){
+    startFreeDraw(id);
+  });
+  var deleteButton = $("<div>");
+  deleteButton.html("Delete");
+  deleteButton.addClass("deleteButton");
+  deleteButton.attr("id", "d"+canvasNum);
+  deleteButton.click(function(){
+    notes[id-1].deleted = true;
+    $("#item"+id).remove();
+    });
+
+    var form = $("<form action='javascript:editFrontText("+id+")'>");
+    form.addClass("form");
+  var fronttextarea = $("<input type='text' placeholder='Front'>");
+  fronttextarea.addClass("textBox");
+  fronttextarea.attr("id", "frontText"+id);
+  form.attr("id", "form"+id);
+  var backtextarea = $("<input type='text' placeholder='Back'>");
+  backtextarea.addClass("textBox");
+  backtextarea.attr("id", "backText"+id);
+  form.append(backtextarea);
+  form.append(fronttextarea);
+  form.append(backtextarea);
+
+
+  newItem.append(deleteButton);
+    newItem.append(drawButton);
+  newItem.append(form);
+}
+
+function flipCard(id){
+  var notecard = $("#c"+id);
+  var fTxt = notecard.frontText;
+  var fDraw = notecard.frontDraw;
+  var bTxt = notecard.backText;
+  var bDraw = notecard.backDraw;  
+  var curSide = notecard.side;
+  var side;
+  if (curSide === "front"){side = "back"}
+  else {side = "front"};
+  edit(id, fTxt, fDraw, bTxt, bDraw, side);
+}
+
+function startFreeDraw(id){
+  var canvas = $("#c"+id);
+  canvas.mousedown(function(event){
+    var canvas = $("#c"+id);
+    var ctx = canvas[0].getContext("2d");
+    var notecard = notes[id-1];
+    var side = notecard.side;
+    var offset = canvas.offset();
+    var startX = event.pageX - offset.left;
+    var startY = event.pageY - offset.top;
+    if (startX>20 && startX<580 && startY>20 && startY<330){
+      var mousePos = [[startX,startY]];
+      ctx.beginPath();
+      ctx.moveTo(startX,startY);
+      canvas.mousemove(function(event){
+        var xpos = event.pageX - offset.left;
+        var ypos = event.pageY - offset.top;
+        if (xpos>20 && xpos<580 && ypos>20 && ypos<330){
+          ctx.lineTo(xpos,ypos);
+          ctx.stroke();
+          mousePos.push([xpos,ypos]);
+        }
+      });
+      window.onmouseup = function(event){
+        notecard[side+"Drawing"].push(mousePos);
+        addDrawing(id,side,mousePos);
+        canvas.unbind('mousemove');
+        canvas.unbind('mouseup');
+      };
+    }
+  }); 
+}
+
+function addText(ctx,text,width,height){
+  ctx.fillStyle="#aaaaaa";
+  ctx.font = "25pt Georgia";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "bottom";
+  ctx.fillText(text, width/2, height/2);
+}
+
+function addCardDrawing(ctx,drawing){
+  var length;
+  var numOfDrawings = drawing.length;
+  if (numOfDrawings > 0){
+    for (var h = 0;h<numOfDrawings; h++) {
+      length = drawing[h].length;
+      if (length > 1){
+        ctx.beginPath();
+        ctx.moveTo(drawing[h][0][0],drawing[h][0][1]);
+        for(var i = 1; i<length; i++){
+          ctx.lineTo(drawing[h][i][0],drawing[h][i][1]);
+          ctx.stroke();
+        }
+      } 
+    }
+  }
+}
+
+
+function editFrontText(id){
+  var text = $("#frontText"+id).val();
+  var noteCard = notes[id-1];
+  noteCard.frontText = text;
+  $("#frontText"+id).val('');
+}
+
+function editBackText(id){
+  var text = $("#backText"+id).val();
+    var noteCard = notes[id-1];
+    noteCard.backText = text;
+  $("#backText"+id).val('');
+}
+
+function noteCardButton(id, text){
+  if (text === "Edit"){
+        var wrapper = $("#cw"+id);
+        var editButton = $("#e"+id);
+        var deleteButton = $("#d"+id);
+        var form = $("#form"+id);
+        drawDrawer(id);
+        editButton.html("Done");
+        deleteButton.html("Delete");
+        wrapper.addClass("editMenu");
+        redrawNotes();
+
+  }
+  else if (text === "Delete"){
+    $("#item"+id).remove();
+    notes[id-1].deleted = true;
+    deleteCard(id);
+  }
+  else if (text === "Done"){
+    if ($("#frontText"+id).val() !== ""){
+      editFrontText(id);
+    }
+    if ($("#backText"+id).val() !== ""){
+      editBackText(id);
+    }
+    editText(id);
+    var wrapper = $("#cw"+id);
+    wrapper.removeClass('editMenu');
+        var editButton = $("#e"+id);
+        editButton.html("Edit");
+        $("#d"+id).remove();
+        $("#form"+id).remove();
+        $("#freeDraw"+id).remove();
+        //redraw
+        redrawNotes();
+  }
+}
+
+
+function buttons(){
+  $("#new").click(function(){
+    createNewCanvas(notes.length+1);
+  });
+}
+ 
+
+  // Implement the get() function
+  function get() {
+    $.ajax({
+      type: "get",
+      url: "/notes",
+      success: function(data) {
+        notes = data.notes;
+        //console.log(listings);
+        redrawNotes();  //added this call
+      }
+    });
+  }
+
+function add(id, fTxt, fDraw, bTxt, bDraw, side){
+  $.ajax({
+    type: "post",
+    data: {"id": id, 
+           "frontText": fTxt,
+           "frontDraw": fDraw,
+           "backText": bTxt, 
+           "backDraw": bDraw, 
+           "side": side},
+    url: "/notes"+id,
+    success: function(data) { 
+    redrawNotes();}  //added this call
+  });
+}
+
+
+
+function edit(id, fTxt, fDraw, bTxt, bDraw, side) {
+  $.ajax({
+  type: "put",
+  data: {"id": id, 
+         "frontText": fTxt,
+         "frontDraw": fDraw,
+         "backText": bTxt, 
+         "backDraw": bDraw, 
+         "side": side},
+  url: "/notes/" + id,
+  success: function(data) { }
+    });
+}
+
+
+function del(id) {
+  $.ajax({
+    type: "delete",
+    url: "/notes/" + id,
+    success: function(data) { }
+  });
+}
+
+
+
+  function delAll() {
+    $.ajax({
+      type: "delete",
+      url: "/notes",
+      success: function(data) { }
+    });
+  }
+
+  $(document).ready(function() {
+    get();
+  });

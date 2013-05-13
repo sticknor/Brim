@@ -26,11 +26,12 @@ mongoExpressAuth.init({
 
 app.use(express.bodyParser({uploadDir:'./static/uploads'}));
 app.use(express.cookieParser());
-app.use(express.session({ secret: 'this is supposed to be secret, change it' }));
+app.use(express.session({ secret: 'The electric Trex strikes again' }));
 
 //===========================
 //  routes
 //===========================
+
 
 app.get('/', function(req, res){
     mongoExpressAuth.checkLogin(req, res, function(err){
@@ -41,6 +42,8 @@ app.get('/', function(req, res){
     });
 });
 
+
+// get the current logged in user
 app.get('/me', function(req, res){
     mongoExpressAuth.checkLogin(req, res, function(err){
         if (err)
@@ -50,16 +53,14 @@ app.get('/me', function(req, res){
                 if (err)
                     res.send(err);
                 else 
-                    res.send(result); // NOTE: direct access to the database is a bad idea in a real app
+                    res.send(result); 
             });
         }
     });
 });
 
 
-
-
-
+//logging in
 app.post('/login', function(req, res){
     mongoExpressAuth.login(req, res, function(err){
         if (err)
@@ -68,15 +69,15 @@ app.post('/login', function(req, res){
             res.send('ok');
     });
 });
- 
+
+//logging out 
 app.post('/logout', function(req, res){
     mongoExpressAuth.logout(req, res);
     res.send('ok');
 });
 
 
-
-
+// creating a new user
 app.post('/register', function(req, res){ 
     mongoExpressAuth.register(req, function(err){
         if (err)
@@ -92,12 +93,16 @@ var child_process = require('child_process');
 var justUploaded = "";
 var converted = "";
 var outPutFile = "static/foo.txt";
-var filterUsed = 3;
+var filterUsed = 1;
 
+
+//converts the image based on current filter
 app.post('/convert', function(req,res){
-    //console.log('recieved convert request');
     justUploaded = req.body.justUploaded;
-    child_process.exec('python filter.py static/'+justUploaded+' '+outPutFile+' '+filterUsed,function(error,stdout,stderr){
+    var ext = justUploaded.lastIndexOf('.');
+    outPutFile = justUploaded.substring(0,ext)+".txt";
+    //makes the call to the python script
+    child_process.exec('python filter.py static/'+justUploaded+' static/'+outPutFile+' '+filterUsed,function(error,stdout,stderr){
         if(error){
             throw error;
         }
@@ -108,50 +113,86 @@ app.post('/convert', function(req,res){
         });
     });
     console.log(converted);
+});
 
+// send the newly converted image
+app.put("/converted", function(request, response){
+    var text;
+    justUploaded = request.body.justUploaded;
+    console.log("Just uploaded: "+justUploaded);
+    var ext = justUploaded.lastIndexOf('.');
+    outPutFile = "static/"+justUploaded.substring(0,ext)+".txt";
+    readFile(outPutFile,"",function(err,data){
+        text = data;
+        //make the text file work for rendering with html
+        text = text.replace(/ /g,"&nbsp;");
+        text = text.replace(/</g,"&#60");
+        text = text.replace(/\n/g,"<br />");
+        response.send({
+            text: text,
+            success: true
+        });
+    });
     
 });
 
-var download = function(uri, filename){
-  request.head(uri, function(err, res, body){
+
+
+// grabbing the image from a url and adding it to uploads folder
+var download = function(uri, filename,response){
+    request.head(uri, function(err, res, body){
     if(err){
         console.log(err);
+        response.redirect("genImage1.html");
     }
     else if ((res.headers['content-type']).indexOf('image')== -1){
         console.log('Not Image URL!');
+        response.redirect("genImage1.html");
     }
     else{
         console.log('content-type:', res.headers['content-type']);
         console.log('content-length:', res.headers['content-length']);
 
         request(uri).pipe(fs.createWriteStream(filename));
+        request(uri).on('end', function (){
+            console.log("redirect");
+            response.redirect("genImage1.html");
+        });
     }
   });
 };
 
 
+// sending the url to be downloaded
 app.post('/onlineImage', function(req, res){
     var urlText = req.body.urlText;
-    var outPutFile = 'static/uploads/trial.png';
-    download(urlText,outPutFile);
-    justUploaded = 'uploads/trial.png';
-    console.log("jkllll")
-   // res.send(justUploaded);
-    res.redirect("genImage1.html");
+    var date = req.body.date;
+
+
+    var outPutImageFile = 'static/uploads/trial'+date+'.png';
+    
+    justUploaded = 'uploads/trial'+date+'.png';
+    outPutFile = "uploads/trial"+date+".txt";
+
+    download(urlText, outPutImageFile,res);
+
 });
 
-app.get('/foo.txt', function(req, res){
-  var file = __dirname + '/static/foo.txt';
-  res.download(file); // Set disposition and send it.
+
+// when the user downloads their printable braille .txt file
+app.get('/uploads/:filename', function(req, res){
+                          //uploads/foo.txt
+    var file = __dirname + "/static/uploads/"+req.params.filename;
+    console.log("\nfile: "+file);
+    res.download(file); // Set disposition and send it.
 });
 
+
+// uploads the image
 app.post('/upload', function(req, res) { 
-    console.log(req.files['thumbnail']);
     var type = req.files['thumbnail'].type;
-    console.log(type);
-    console.log(type !== "image/jpeg")
+    // make sure the file is actually an image!
     if (type !== "image/jpeg" && type !== "image/png" && type !== "image/gif"){
-        console.log("notanImage");
         res.redirect('notanImage.html');        
     }
     else{
@@ -160,7 +201,11 @@ app.post('/upload', function(req, res) {
     var newName = req.files['thumbnail'].name;
     var srcimg = "static/uploads/"+newName;
     justUploaded = "uploads/"+newName;
+    var ext = justUploaded.lastIndexOf('.');
+    outPutFile = justUploaded.substring(0,ext)+".txt";
 
+
+    // rename the file
     fs.renameSync(fileName, srcimg);
     if (mongoExpressAuth.isLoggedIn(req)){
         mongoExpressAuth.updateUploadImage(req, justUploaded, function(err, result){
@@ -172,6 +217,8 @@ app.post('/upload', function(req, res) {
     res.redirect('genImage1.html');}
 });
 
+
+// changes the filter based of a click if the 'radio' buttons
 app.post('/filter', function(req, res){
    filterUsed = req.body.filterNum;
    res.send({
@@ -179,8 +226,11 @@ app.post('/filter', function(req, res){
    });
 });
 
+
+// gets the current working image
 app.get("/justUploaded", function(request, response){
     if (mongoExpressAuth.isLoggedIn(request)){
+        // depends on user
         mongoExpressAuth.getAccount(request, function(err, result){
             if (err)
                 response.send(err);
@@ -208,6 +258,8 @@ function readFile(filename, defaultData, callbackFn) {
   });
 }
 
+
+// grab all the images from a specific user
 app.get("/allImages", function(request,response){
     if (mongoExpressAuth.isLoggedIn(request)){
     var h = mongoExpressAuth.getUserImages(request, function(err, result){
@@ -215,14 +267,16 @@ app.get("/allImages", function(request,response){
                 res.send(err);
             }
         });
-    //console.log("Result: "+(h.items));
     }
 });
 
+
+// saves the image to the database
 app.post("/save", function(request,response){
     var img = request.body.img;
     var title = request.body.title;
     var desc = request.body.desc;
+    //depends on user
     if (mongoExpressAuth.isLoggedIn(request)){
         mongoExpressAuth.addImage(request, img, title, desc, function(err, result){
             if(err){
@@ -234,7 +288,7 @@ app.post("/save", function(request,response){
 
 
 
-
+/// Creating the permanent standard library
 var library = {"Elephant":"imageLib/elephant.jpg",
                "Letter A":"imageLib/letter_a.jpg",
                "Letter B":"imageLib/letter_b.jpg",
@@ -248,31 +302,12 @@ var library = {"Elephant":"imageLib/elephant.jpg",
                "Triangle":"imageLib/shape-triangle.jpg"
 };
 
-
+// sending the library contents
 app.get('/imageLib', function(request, response){
-
     response.send({
         library: library
-
     })
-
 });
-
-app.get("/converted", function(request, response){
-    var text;
-    readFile("static/foo.txt","",function(err,data){
-        text = data;
-        text = text.replace(/ /g,"&nbsp;");
-        text = text.replace(/\n/g,"<br />");
-        response.send({
-            text: text,
-            success: true
-        });
-    });
-    
-});
-
-
 
 
 

@@ -45,99 +45,49 @@
   </body>
   <script src="scripts/jquery-1.9.0.js"></script>
   <script src="scripts/addTappableJQPlugin.js"></script>
-    <script src="scripts/logout.js" type="text/javascript"></script>
+  <script src="scripts/logout.js" type="text/javascript"></script>
 
   <script src="scripts/home.js" type="text/javascript"></script>
+  <script src="scripts/decideTopBar.js" type="text/javascript"></script>
   <script type="text/javascript">
-  var user;
-    function getMe(callBack){
-      $.ajax({
-        type: "get",
-        url: "/me",
-        success: function(data){
-          changeHome(data);
-        }  
-      });
-    }
-
-
-function changeHome(user){
-    if (user !== "no login data present"){
-        $("#goHome").attr("href", "index.html");
-        $("#goBackHome").attr("href", "index.html");
-        makeLogout();
-    }
-    else{
-        $("#goHome").attr("href", "home.html");
-        $("#goBackHome").attr("href", "home.html");
-    }
-
-}
-
-function makeLogout(){
-    var head = $('head');
-    var topBar = $('.topBar');
-    var bar = $('#bar');
-    var logo = $('#goHome');
-    var login = $("<span>");
-    login.attr('id','login');
-
-    $("#phoneHomeMenu").remove();
-
-    var button = $("<span>");
-    button.addClass('homePageButton button roundedCorners');
-    button.attr('id','logoutButton');
-    button.html('Log Out');
-
-    $.getScript("scripts/logout.js", function(){
-        logoutFunction();
-    });
-      
-    login.append(button);
-    bar.append(login);
-}
-
-
-getMe();
-
-
-$("#saveButton").click(function(){
-  var title = $("#imageTitle").val();
-  var desc = $("#desc").val();
-  if (title === ""){
-    alert("You must include a title!");
-  }
-  else{
-  saveImage(title, desc);
-        $("#saveButton").html("Saved!");
-        $("#saveButton").addClass("filterSelected");
-      var title = $("#imageTitle").val("");
-      var desc = $("#desc").val("");
-      sessionStorage.setItem('justUploaded', "");
-  }
-
-});
-
-
-
-function saveImage(title, desc){
-  $.ajax({
-    type:"post",
-    url: "/save",
-    data: {
-      img : sessionStorage.getItem('justUploaded'),
-      title : title,
-      desc : desc
-    },
-    success: function(data){
-      $("#saveButton").html("Saved");
-      var title = $("#imageTitle").val("");
-      var desc = $("#desc").val("");
-    }
+  //make the save button functionality
+  $("#saveButton").click(function(){
+      var title = $("#imageTitle").val();
+      var desc = $("#desc").val();
+      if (title === ""){
+          alert("You must include a title!");
+      }
+      else{
+          saveImage(title, desc);
+          $("#saveButton").html("Saved!");
+          $("#saveButton").addClass("filterSelected");
+          var title = $("#imageTitle").val("");
+          var desc = $("#desc").val("");
+          sessionStorage.setItem('justUploaded', "");
+          window.location = "index.html";
+      }
   });
-}
+
+
+  // send save info the the server
+  function saveImage(title, desc){
+      $.ajax({
+          type:"post",
+          url: "/save",
+          data: {
+              img : sessionStorage.getItem('justUploaded'),
+              title : title,
+              desc : desc
+          },
+          success: function(data){
+              $("#saveButton").html("Saved");
+              var title = $("#imageTitle").val("");
+              var desc = $("#desc").val("");
+          }
+      });
+  }
+
+  getMe();
 
 </script>
-  <script>
-  </script>
 </html>

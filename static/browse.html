@@ -35,159 +35,82 @@
   </body>
   <script src="scripts/jquery-1.9.0.js"></script>
   <script src="scripts/addTappableJQPlugin.js"></script>
-    <script src="scripts/logout.js" type="text/javascript"></script>
-
+  <script src="scripts/logout.js" type="text/javascript"></script>
   <script src="scripts/home.js" type="text/javascript"></script>
+  <script src="scripts/decideTopBar.js" type="text/javascript"></script>
   <script type="text/javascript">
+ 
   var user;
   var prunedImages = {};
 
-
-
-    function getMe(callBack){
+  function getLibrary(callBack){
       $.ajax({
-        type: "get",
-        url: "/me",
-        success: function(data){
-          changeHome(data);
-        }  
+          type: "get",
+          url: "/imageLib",
+          success: function(data){
+              prune(data.library);
+          }  
       });
-    }
+  }
 
-
-    function getLibrary(callBack){
-      $.ajax({
-        type: "get",
-        url: "/imageLib",
-        success: function(data){
-          prune(data.library);
-        }  
-      });
-    }
-
-    getLibrary();
-    getMe();
+  getLibrary();
   
-function prune(images){
-	console.log(images);
-  for(image in images){
-  	 console.log(image);
+  // make sure images about to be shown are legit
+  function prune(images){
+      for(image in images){
       var file = images[image];
       var title = image;
-      console.log(file);
       if (file != null && file != undefined && file != "" &&
            file.title != ""){
-        prunedImages[image] = title;
+          prunedImages[image] = title;
       }
   }
-  console.log(prunedImages);
   displayImages(images);
-}
-
-function displayImages(images){
-  var addImages = $("<div>");
-  addImages.addClass("addImages")
-  addImages.addClass("preIntroduction");
-  addImages.addClass("roundedCorners");
-
-  for (image in images){
-    var thisImage = $("<div>");
-    thisImage.addClass("browseImage");
-
-    var thumbnail = $("<img>");
-    thumbnail.addClass("thumbnail");
-    thumbnail.attr("src", images[image]);
-
-
-
-    var chooseButton = $("<a>");
-    chooseButton.addClass("browseChoose");
-    chooseButton.addClass("button");
-        chooseButton.addClass("roundedCorners");
-
-    chooseButton.html("Choose!");
-    chooseButton.attr("href", "genImage1.html");
-
-
-  // console.log(images[image]);
-    thisImage.html(image);
-    thisImage.click(
-      function (self) {return function(){
-      sessionStorage.setItem("justUploaded", images[self]);
-          console.log(sessionStorage.getItem("justUploaded"));
-    }}(image));
-
-        thumbnail.click(
-      function (self) {return function(){
-      sessionStorage.setItem("justUploaded", images[self]);
-          console.log(sessionStorage.getItem("justUploaded"));
-    }}(image));
-
-
-     //   thisImage.attr("href", "genImage1.html");
-    thisImage.append(chooseButton);
-    addImages.append(thisImage);
-    addImages.append(thumbnail);
   }
-  $(".container").append(addImages);
 
-}
+  function displayImages(images){
+    var addImages = $("<div>");
+    addImages.addClass("addImages")
+    addImages.addClass("preIntroduction");
+    addImages.addClass("roundedCorners");
 
-function changeHome(user){
-    if (user !== "no login data present"){
-        $("#goHome").attr("href", "index.html");
-        $("#goBackHome").attr("href", "index.html");
-        makeLogout();
-    }
-    else{
-        $("#goHome").attr("href", "home.html");
-        $("#goBackHome").attr("href", "home.html");
-    }
+    for (image in images){
+      var thisImage = $("<div>");
+      thisImage.addClass("browseImage");
 
-}
-
-function makeLogout(){
-    var head = $('head');
-    var topBar = $('.topBar');
-    var bar = $('#bar');
-    var logo = $('#goHome');
-    var login = $("<span>");
-    login.attr('id','login');
-
-    $("#phoneHomeMenu").remove();
-
-    var button = $("<span>");
-    button.addClass('homePageButton button roundedCorners');
-    button.attr('id','logoutButton');
-    button.html('Log Out');
-
-    $.getScript("scripts/logout.js", function(){
-        logoutFunction();
-    });
-      
-    login.append(button);
-    bar.append(login);
-}
+      var thumbnail = $("<img>");
+      thumbnail.addClass("thumbnail");
+      thumbnail.attr("src", images[image]);
 
 
-function saveImage(title, desc){
-  $.ajax({
-    type:"post",
-    url: "/save",
-    data: {
-      img : sessionStorage.getItem('justUploaded'),
-      title : title,
-      desc : desc
-    },
-    success: function(data){
-      $("#saveButton").html("Saved");
-      var title = $("#imageTitle").val("");
-      var desc = $("#desc").val("");
-    }
-  });
-}
+
+      var chooseButton = $("<a>");
+      chooseButton.addClass("browseChoose");
+      chooseButton.addClass("button");
+      chooseButton.addClass("roundedCorners");
+
+      chooseButton.html("Choose!");
+      chooseButton.attr("href", "genImage1.html");
+
+
+      thisImage.html(image);
+      thisImage.click(
+        function (self) {return function(){
+            sessionStorage.setItem("justUploaded", images[self]);
+        }}(image));
+
+      thumbnail.click(
+        function (self) {return function(){
+            sessionStorage.setItem("justUploaded", images[self]); 
+        }}(image));
+
+
+      thisImage.append(chooseButton);
+      addImages.append(thisImage);
+      addImages.append(thumbnail);
+      }
+      $(".container").append(addImages);
+  }
 
 </script>
-  <script>
-  </script>
 </html>

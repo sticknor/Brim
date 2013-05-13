@@ -173,7 +173,7 @@ def padImage(imArray):
 def makeText(imArray):
 	padImage(imArray);
 	string = "";
-	f = open(outFile,'w+');
+	f = open(outFile,'w');
 	rows = len(imArray);
 	cols = len(imArray[0]);
 
