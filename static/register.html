@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="reset.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400' rel='stylesheet' 
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:700' rel='stylesheet' 
+          type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <title>
+    BRIM: Tactile Imaging
+  </title>
+  <body id = "home">
+    <div class = "topBar">
+     <div id = "bar">
+      <a href = home.html>
+      <span id = "logo">
+        .:BRIM:.
+      </span>
+      </a>
+      <span id = "login">
+        <span id = "phoneHomeMenu" class = "smallRoundedCorners">
+        </span>
+      </span>
+      </div>
+    </div>
+    <div class = "container smallContainer">
+        <div id = "preIntroduction"  class = "roundedCorners">
+        <h2>Register</h2>
+          <div class = "textBoxWrap">
+            <input id = "loginID"  type = "text" ::-moz-placeholder = "Username" placeholder = "Username">
+          </div>
+          <div class = "textBoxWrap">
+            <input id = "password" type = "password" placeholder = "Password">
+          </div>
+        </div>
+    </div>
+          <span id = "loginButton" class = "button homePageButton roundedCorners">
+            Submit
+          </span>    
+  </body>
+  <script src="jquery-1.9.0.js"></script>
+  <script src="addTappableJQPlugin.js"></script>
+  <script src="login.js" type="text/javascript"></script>
+  <script>
+      var phoneFace = $("#phoneHomeMenu");
+      phoneFace.click(function(){
+          addPhoneMenu();
+      });
+
+      function addPhoneMenu(){
+          if ($("#mobileMenu")[0] === undefined){
+              var menu = $("<div>");
+              var login = $("<span>");
+              var register = $("<span>");
+              var loginLink = $("<a>");
+              var registerLink = $("<a>");
+
+
+              menu.attr("id", "mobileMenu");
+              
+login.attr("id", "mobileLogin");
+              login.addClass("button");
+              login.addClass("mobileMenuButton");
+              login.addClass("roundedCorners");
+              login.html("Login");
+              loginLink.attr("href", "loginDialouge.html");
+              loginLink.append(login);
+              
+              register.attr("id", "mobileRegister");
+              register.addClass("button");
+              register.addClass("mobileMenuButton");
+              register.addClass("roundedCorners");
+              register.html("Register");
+              registerLink.attr("href", "registerDialouge.html");
+              registerLink.append(register);
+
+              menu.append(loginLink);
+              menu.append(registerLink);
+            
+              $("#phoneHomeMenu").addClass("menuSelected");
+              $("#preIntroduction").attr("id", "preExpand");
+              $(".topBar").addClass("topBarExpanded");
+              $(".topBar").append(menu);
+
+          }
+        else{
+            $("#mobileMenu").remove();
+            $("#mobileLogin").remove();
+            $("#mobileRegister").remove();
+            $("#phoneHomeMenu").removeClass("menuSelected");
+            $(".topBar").removeClass("topBarExpanded");
+            $("#preExpand").attr("id", "preIntroduction");
+        }
+
+
+
+      }
+
+
+  </script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style/reset.css">
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" href="/mobile/icon.png" />
+  </head>
+  <title>BRIM: Tactile Imaging</title>
+  <body>
+    
+    <div class = "topBar">
+      <div id = "bar">
+        <span id = "goHome" class = "logo">.:BRIM:.</span>
+      </div>
+    </div>
+
+    <div class = "container">
+      <div id = "preIntroduction" class = "roundedCorners">
+      
+      <div id = "genImgInst">
+        <div id = "instruct" class ="roundedCorners">
+          <h2> Tactile Image Preview</h2>
+        </div>
+      </div>
+        
+      <div id = "imageBox">
+
+        <div class = "imageBoxContainer">
+          
+          <div id = "upload" class = "roundedCorners button">
+            Upload An Image
+          </div>
+
+
+          <form  method="post" enctype="multipart/form-data" action="upload" id = "uploadForm">
+            <div class="fileUpload hide">
+              <label for="file">Choose File</label>
+              <input type="file" name="thumbnail">
+            </div>
+          </form>
+          <div id = "or">Or</div>
+          <div id = "url" class = "roundedCorners button">
+            Paste A URL
+          </div>
+        </div>
+      </div>
+
+      <div id = "centerBottom" class = "hide">
+      <a href = "save.html"><div id = "save" class = "button roundedCorners hide">Save</div></a>
+      
+      <a href="foo.txt" id = "download" class = "button roundedCorners hide" target="_blank">Download</a>
+    
+      <div id = "filters" class = "hide">
+        <span id = "filter1" class = "filterButton button hide">Filter 1</span>
+        <span id = "filter2"  class = "filterButton button hide">Filter 2</span>
+        <span id = "filter3"  class = "filterButton button hide">Filter 3</span>
+      </div>  
+      <div id = "convert" class = "button roundedCorners hide">
+        Select!
+      </div>  
+      </div>
+    </div>
+    </div>
+  </body>
+  <script src="scripts/jquery-1.9.0.js"></script>
+  <script src = "scripts/genImage1.js" type="text/javascript"></script>
+  <script src = "scripts/home.js" type="text/javascript"></script>
+  <script src = "scripts/logout.js" type="text/javascript"></script>
+</html>

@@ -1,0 +1,438 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'zipfile' ]
+2 info using npm@1.1.69
+3 info using node@v0.8.16
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json C:\Users\Sam\Desktop\TermProject6\package.json
+6 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\easyimage\package.json
+7 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\express\package.json
+8 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\gm\package.json
+9 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\im\package.json
+10 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\imagemagick\package.json
+11 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\in\package.json
+12 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\mongo-express-auth\package.json
+13 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\mongodb\package.json
+14 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\mongoose\package.json
+15 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\passport\package.json
+16 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\request\package.json
+17 verbose read json C:\Users\Sam\Desktop\TermProject6\package.json
+18 verbose cache add [ 'zipfile', null ]
+19 silly cache add name=undefined spec="zipfile" args=["zipfile",null]
+20 verbose parsed url { pathname: 'zipfile', path: 'zipfile', href: 'zipfile' }
+21 silly lockFile fabc0a48-zipfile zipfile
+22 verbose lock zipfile C:\Users\Sam\AppData\Roaming\npm-cache\fabc0a48-zipfile.lock
+23 silly lockFile fabc0a48-zipfile zipfile
+24 verbose addNamed [ 'zipfile', '' ]
+25 verbose addNamed [ null, '' ]
+26 silly lockFile 241847ad-zipfile zipfile@
+27 verbose lock zipfile@ C:\Users\Sam\AppData\Roaming\npm-cache\241847ad-zipfile.lock
+28 silly addNameRange { name: 'zipfile', range: '', hasData: false }
+29 verbose url raw zipfile
+30 verbose url resolving [ 'https://registry.npmjs.org/', './zipfile' ]
+31 verbose url resolved https://registry.npmjs.org/zipfile
+32 info trying registry request attempt 1 at 22:52:35
+33 http GET https://registry.npmjs.org/zipfile
+34 http 200 https://registry.npmjs.org/zipfile
+35 silly registry.get cb [ 200,
+35 silly registry.get   { vary: 'Accept',
+35 silly registry.get     server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+35 silly registry.get     etag: '"CAGAOTWEQLYH2QWYBH51KRFAC"',
+35 silly registry.get     date: 'Mon, 29 Apr 2013 02:52:32 GMT',
+35 silly registry.get     'content-type': 'application/json',
+35 silly registry.get     'content-length': '32110' } ]
+36 silly addNameRange number 2 { name: 'zipfile', range: '', hasData: true }
+37 silly addNameRange versions [ 'zipfile',
+37 silly addNameRange   [ '0.1.0',
+37 silly addNameRange     '0.1.1',
+37 silly addNameRange     '0.1.2',
+37 silly addNameRange     '0.1.3',
+37 silly addNameRange     '0.1.4',
+37 silly addNameRange     '0.1.5',
+37 silly addNameRange     '0.1.6',
+37 silly addNameRange     '0.1.7',
+37 silly addNameRange     '0.1.8',
+37 silly addNameRange     '0.2.0',
+37 silly addNameRange     '0.2.1',
+37 silly addNameRange     '0.2.2',
+37 silly addNameRange     '0.2.3',
+37 silly addNameRange     '0.2.4',
+37 silly addNameRange     '0.3.0',
+37 silly addNameRange     '0.3.1',
+37 silly addNameRange     '0.2.5',
+37 silly addNameRange     '0.3.2',
+37 silly addNameRange     '0.3.3',
+37 silly addNameRange     '0.3.4' ] ]
+38 verbose addNamed [ 'zipfile', '0.3.4' ]
+39 verbose addNamed [ '0.3.4', '0.3.4' ]
+40 silly lockFile 78ad72dc-zipfile-0-3-4 zipfile@0.3.4
+41 verbose lock zipfile@0.3.4 C:\Users\Sam\AppData\Roaming\npm-cache\78ad72dc-zipfile-0-3-4.lock
+42 silly lockFile bbe96138-js-org-zipfile-zipfile-0-3-4-tgz https://registry.npmjs.org/zipfile/-/zipfile-0.3.4.tgz
+43 verbose lock https://registry.npmjs.org/zipfile/-/zipfile-0.3.4.tgz C:\Users\Sam\AppData\Roaming\npm-cache\bbe96138-js-org-zipfile-zipfile-0-3-4-tgz.lock
+44 verbose addRemoteTarball [ 'https://registry.npmjs.org/zipfile/-/zipfile-0.3.4.tgz',
+44 verbose addRemoteTarball   '45f85e95d8a6430be86d3ba72c5fe5eca002e320' ]
+45 info retry fetch attempt 1 at 22:52:36
+46 verbose fetch to= C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\tmp.tgz
+47 http GET https://registry.npmjs.org/zipfile/-/zipfile-0.3.4.tgz
+48 http 200 https://registry.npmjs.org/zipfile/-/zipfile-0.3.4.tgz
+49 silly shasum updated bytes 40960
+50 silly shasum updated bytes 40960
+51 silly shasum updated bytes 40960
+52 silly shasum updated bytes 40960
+53 silly shasum updated bytes 40960
+54 silly shasum updated bytes 40960
+55 silly shasum updated bytes 40960
+56 silly shasum updated bytes 40960
+57 silly shasum updated bytes 40960
+58 silly shasum updated bytes 40960
+59 silly shasum updated bytes 40960
+60 silly shasum updated bytes 40960
+61 silly shasum updated bytes 40960
+62 silly shasum updated bytes 40960
+63 silly shasum updated bytes 40960
+64 silly shasum updated bytes 40960
+65 silly shasum updated bytes 40960
+66 silly shasum updated bytes 40960
+67 silly shasum updated bytes 40960
+68 silly shasum updated bytes 31651
+69 info shasum 45f85e95d8a6430be86d3ba72c5fe5eca002e320
+69 info shasum C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\tmp.tgz
+70 verbose tar unpack C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\tmp.tgz
+71 silly lockFile e2258081-56707-0-6785234597045928-package C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\package
+72 verbose lock C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\package C:\Users\Sam\AppData\Roaming\npm-cache\e2258081-56707-0-6785234597045928-package.lock
+73 silly gunzTarPerm modes [ '755', '644' ]
+74 silly gunzTarPerm extractEntry package.json
+75 silly gunzTarPerm extractEntry .npmignore
+76 silly gunzTarPerm extractEntry README.md
+77 silly gunzTarPerm extractEntry test.js
+78 silly gunzTarPerm extractEntry deps/libzip-0.10.tar.bz2
+79 silly gunzTarPerm extractEntry include/zipfile/node_zipfile.h
+80 silly gunzTarPerm extractEntry lib/index.js
+81 silly gunzTarPerm extractEntry lib/zipfile.js
+82 silly gunzTarPerm extractEntry LICENSE.txt
+83 silly gunzTarPerm extractEntry bin/unzip.js
+84 silly gunzTarPerm extractEntry wscript
+85 silly gunzTarPerm extractEntry binding.gyp
+86 silly gunzTarPerm extractEntry src/_zipfile.cc
+87 silly gunzTarPerm extractEntry src/node_zipfile.cpp
+88 silly gunzTarPerm extractEntry test/exceptions.test.js
+89 silly gunzTarPerm extractEntry test/open.test.js
+90 silly gunzTarPerm extractEntry test/unicode.test.js
+91 silly gunzTarPerm extractEntry test/write.test.js
+92 silly gunzTarPerm extractEntry test/data/one.txt
+93 silly gunzTarPerm extractEntry test/data/Archive/one.txt
+94 silly gunzTarPerm extractEntry test/data/Archive/two.txt
+95 silly gunzTarPerm extractEntry test/data/Clément/foo.csv
+96 silly gunzTarPerm extractEntry test/data/Clément/foo.csv.zip
+97 silly gunzTarPerm extractEntry test/data/Clément/Olá.txt
+98 silly gunzTarPerm extractEntry test/data/Clément/Olá.zip
+99 silly gunzTarPerm extractEntry test/data/ééé/foo.csv
+100 silly gunzTarPerm extractEntry test/data/ééé/foo.csv.zip
+101 silly gunzTarPerm extractEntry test/data/folder.zip
+102 silly gunzTarPerm extractEntry test/data/invalid.zip
+103 silly gunzTarPerm extractEntry test/data/Archive.zip
+104 silly gunzTarPerm extractEntry test/data/points.csv.zip
+105 silly gunzTarPerm extractEntry test/data/test.zip
+106 silly gunzTarPerm extractEntry test/data/two.txt
+107 silly gunzTarPerm extractEntry test/data/world_merc.zip
+108 silly gunzTarPerm extractEntry test/data/你好_points.csv
+109 silly gunzTarPerm extractEntry test/tmp/placeholder.txt
+110 silly gunzTarPerm extractEntry configure
+111 silly gunzTarPerm extractEntry tools/cpp.el
+112 silly gunzTarPerm extractEntry tools/fix_cpp_style.sh
+113 silly gunzTarPerm extractEntry vcbuild.bat
+114 silly gunzTarPerm extractEntry Makefile
+115 verbose read json C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\package\package.json
+116 silly lockFile e2258081-56707-0-6785234597045928-package C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\package
+117 verbose from cache C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\package\package.json
+118 verbose tar pack [ 'C:\\Users\\Sam\\AppData\\Roaming\\npm-cache\\zipfile\\0.3.4\\package.tgz',
+118 verbose tar pack   'C:\\Users\\Sam\\AppData\\Local\\Temp\\npm-14068\\1367203956707-0.6785234597045928\\package' ]
+119 verbose tarball C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+120 verbose folder C:\Users\Sam\AppData\Local\Temp\npm-14068\1367203956707-0.6785234597045928\package
+121 silly lockFile cf5360e1--cache-zipfile-0-3-4-package-tgz C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+122 verbose lock C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz C:\Users\Sam\AppData\Roaming\npm-cache\cf5360e1--cache-zipfile-0-3-4-package-tgz.lock
+123 silly lockFile cf5360e1--cache-zipfile-0-3-4-package-tgz C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+124 silly lockFile 3e31e967--npm-cache-zipfile-0-3-4-package C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package
+125 verbose lock C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package C:\Users\Sam\AppData\Roaming\npm-cache\3e31e967--npm-cache-zipfile-0-3-4-package.lock
+126 silly lockFile 3e31e967--npm-cache-zipfile-0-3-4-package C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package
+127 verbose tar unpack C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+128 silly lockFile 3e31e967--npm-cache-zipfile-0-3-4-package C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package
+129 verbose lock C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package C:\Users\Sam\AppData\Roaming\npm-cache\3e31e967--npm-cache-zipfile-0-3-4-package.lock
+130 silly gunzTarPerm modes [ '755', '644' ]
+131 silly gunzTarPerm extractEntry package.json
+132 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+133 silly gunzTarPerm extractEntry .npmignore
+134 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+135 silly gunzTarPerm extractEntry README.md
+136 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+137 silly gunzTarPerm extractEntry test.js
+138 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+139 silly gunzTarPerm extractEntry deps/libzip-0.10.tar.bz2
+140 silly gunzTarPerm modified mode [ 'deps/libzip-0.10.tar.bz2', 438, 420 ]
+141 silly gunzTarPerm extractEntry include/zipfile/node_zipfile.h
+142 silly gunzTarPerm modified mode [ 'include/zipfile/node_zipfile.h', 438, 420 ]
+143 silly gunzTarPerm extractEntry lib/index.js
+144 silly gunzTarPerm modified mode [ 'lib/index.js', 438, 420 ]
+145 silly gunzTarPerm extractEntry lib/zipfile.js
+146 silly gunzTarPerm modified mode [ 'lib/zipfile.js', 438, 420 ]
+147 silly gunzTarPerm extractEntry LICENSE.txt
+148 silly gunzTarPerm modified mode [ 'LICENSE.txt', 438, 420 ]
+149 silly gunzTarPerm extractEntry bin/unzip.js
+150 silly gunzTarPerm modified mode [ 'bin/unzip.js', 438, 420 ]
+151 silly gunzTarPerm extractEntry wscript
+152 silly gunzTarPerm modified mode [ 'wscript', 438, 420 ]
+153 silly gunzTarPerm extractEntry binding.gyp
+154 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+155 silly gunzTarPerm extractEntry src/node_zipfile.cpp
+156 silly gunzTarPerm modified mode [ 'src/node_zipfile.cpp', 438, 420 ]
+157 silly gunzTarPerm extractEntry src/_zipfile.cc
+158 silly gunzTarPerm modified mode [ 'src/_zipfile.cc', 438, 420 ]
+159 silly gunzTarPerm extractEntry test/exceptions.test.js
+160 silly gunzTarPerm modified mode [ 'test/exceptions.test.js', 438, 420 ]
+161 silly gunzTarPerm extractEntry test/open.test.js
+162 silly gunzTarPerm modified mode [ 'test/open.test.js', 438, 420 ]
+163 silly gunzTarPerm extractEntry test/unicode.test.js
+164 silly gunzTarPerm modified mode [ 'test/unicode.test.js', 438, 420 ]
+165 silly gunzTarPerm extractEntry test/write.test.js
+166 silly gunzTarPerm modified mode [ 'test/write.test.js', 438, 420 ]
+167 silly gunzTarPerm extractEntry test/data/one.txt
+168 silly gunzTarPerm modified mode [ 'test/data/one.txt', 438, 420 ]
+169 silly gunzTarPerm extractEntry test/data/Archive/one.txt
+170 silly gunzTarPerm modified mode [ 'test/data/Archive/one.txt', 438, 420 ]
+171 silly gunzTarPerm extractEntry test/data/Archive/two.txt
+172 silly gunzTarPerm modified mode [ 'test/data/Archive/two.txt', 438, 420 ]
+173 silly gunzTarPerm extractEntry test/data/Clément/foo.csv
+174 silly gunzTarPerm modified mode [ 'test/data/Clément/foo.csv', 438, 420 ]
+175 silly gunzTarPerm extractEntry test/data/Clément/foo.csv.zip
+176 silly gunzTarPerm modified mode [ 'test/data/Clément/foo.csv.zip', 438, 420 ]
+177 silly gunzTarPerm extractEntry test/data/Clément/Olá.txt
+178 silly gunzTarPerm modified mode [ 'test/data/Clément/Olá.txt', 438, 420 ]
+179 silly gunzTarPerm extractEntry test/data/Clément/Olá.zip
+180 silly gunzTarPerm modified mode [ 'test/data/Clément/Olá.zip', 438, 420 ]
+181 silly gunzTarPerm extractEntry test/data/ééé/foo.csv
+182 silly gunzTarPerm modified mode [ 'test/data/ééé/foo.csv', 438, 420 ]
+183 silly gunzTarPerm extractEntry test/data/ééé/foo.csv.zip
+184 silly gunzTarPerm modified mode [ 'test/data/ééé/foo.csv.zip', 438, 420 ]
+185 silly gunzTarPerm extractEntry test/data/folder.zip
+186 silly gunzTarPerm modified mode [ 'test/data/folder.zip', 438, 420 ]
+187 silly gunzTarPerm extractEntry test/data/invalid.zip
+188 silly gunzTarPerm modified mode [ 'test/data/invalid.zip', 438, 420 ]
+189 silly gunzTarPerm extractEntry test/data/Archive.zip
+190 silly gunzTarPerm modified mode [ 'test/data/Archive.zip', 438, 420 ]
+191 silly gunzTarPerm extractEntry test/data/points.csv.zip
+192 silly gunzTarPerm modified mode [ 'test/data/points.csv.zip', 438, 420 ]
+193 silly gunzTarPerm extractEntry test/data/test.zip
+194 silly gunzTarPerm modified mode [ 'test/data/test.zip', 438, 420 ]
+195 silly gunzTarPerm extractEntry test/data/two.txt
+196 silly gunzTarPerm modified mode [ 'test/data/two.txt', 438, 420 ]
+197 silly gunzTarPerm extractEntry test/data/world_merc.zip
+198 silly gunzTarPerm modified mode [ 'test/data/world_merc.zip', 438, 420 ]
+199 silly gunzTarPerm extractEntry test/data/你好_points.csv
+200 silly gunzTarPerm modified mode [ 'test/data/你好_points.csv', 438, 420 ]
+201 silly gunzTarPerm extractEntry test/tmp/placeholder.txt
+202 silly gunzTarPerm modified mode [ 'test/tmp/placeholder.txt', 438, 420 ]
+203 silly gunzTarPerm extractEntry configure
+204 silly gunzTarPerm modified mode [ 'configure', 438, 420 ]
+205 silly gunzTarPerm extractEntry tools/cpp.el
+206 silly gunzTarPerm modified mode [ 'tools/cpp.el', 438, 420 ]
+207 silly gunzTarPerm extractEntry tools/fix_cpp_style.sh
+208 silly gunzTarPerm modified mode [ 'tools/fix_cpp_style.sh', 438, 420 ]
+209 silly gunzTarPerm extractEntry vcbuild.bat
+210 silly gunzTarPerm modified mode [ 'vcbuild.bat', 438, 420 ]
+211 silly gunzTarPerm extractEntry Makefile
+212 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+213 verbose read json C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package\package.json
+214 silly lockFile 3e31e967--npm-cache-zipfile-0-3-4-package C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package
+215 silly shasum updated bytes 40960
+216 silly shasum updated bytes 40960
+217 silly shasum updated bytes 40960
+218 silly shasum updated bytes 40960
+219 silly shasum updated bytes 40960
+220 silly shasum updated bytes 40960
+221 silly shasum updated bytes 40960
+222 silly shasum updated bytes 40960
+223 silly shasum updated bytes 40960
+224 silly shasum updated bytes 40960
+225 silly shasum updated bytes 40960
+226 silly shasum updated bytes 40960
+227 silly shasum updated bytes 40960
+228 silly shasum updated bytes 40960
+229 silly shasum updated bytes 40960
+230 silly shasum updated bytes 40960
+231 silly shasum updated bytes 40960
+232 silly shasum updated bytes 40960
+233 silly shasum updated bytes 40960
+234 silly shasum updated bytes 31468
+235 info shasum 3690fbaf1496dfec63abdc15b751d17e43120319
+235 info shasum C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+236 verbose from cache C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package\package.json
+237 verbose chmod C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz 644
+238 silly chown skipping for windows C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+239 silly lockFile bbe96138-js-org-zipfile-zipfile-0-3-4-tgz https://registry.npmjs.org/zipfile/-/zipfile-0.3.4.tgz
+240 silly lockFile 78ad72dc-zipfile-0-3-4 zipfile@0.3.4
+241 silly lockFile 241847ad-zipfile zipfile@
+242 silly resolved [ { name: 'zipfile',
+242 silly resolved     version: '0.3.4',
+242 silly resolved     main: './lib/index.js',
+242 silly resolved     description: 'C++ library for handling zipfiles in node',
+242 silly resolved     keywords: [ 'zipfile', 'uncompress', 'unzip', 'zlib' ],
+242 silly resolved     url: 'http://github.com/springmeyer/node-zipfile',
+242 silly resolved     repositories: [ [Object] ],
+242 silly resolved     author: { name: 'Dane Springmeyer', email: 'dane@dbsgeo.com' },
+242 silly resolved     contributors: [],
+242 silly resolved     licenses: [ 'BSD' ],
+242 silly resolved     dependencies: {},
+242 silly resolved     devDependencies: { mocha: '*', mkdirp: '~0.3.0', jshint: '~0.5.x' },
+242 silly resolved     bin: { 'unzip.js': './bin/unzip.js' },
+242 silly resolved     directories: { examples: 'examples', src: 'src' },
+242 silly resolved     engines: { node: '>= 0.6.13 && < 0.9.0' },
+242 silly resolved     scripts: { install: 'node-waf configure build', test: 'make test' },
+242 silly resolved     readme: '# node-zipfile\n      \nBindings to [libzip](http://nih.at/libzip/libzip.html) for handling zipfile archives in [node](http://nodejs.org).\n\n\n## Example\n\n    var zipfile = require(\'zipfile\');\n    var zf = new zipfile.ZipFile(\'./test/data/world_merc.zip\');\n    zf\n    { names: [ \'world_merc.dbf\', \'world_merc.prj\', \'world_merc.shp\', \'world_merc.shx\' ],\n      count: 4 }\n    var buffer = zf.readFileSync(\'world_merc.prj\');\n    buffer.toString()\n    \'PROJCS["Google Maps Global Mercator",GEOGCS .... \'\n\n\n## Depends\n\nnode-zipfile 0.3.x depends on node v0.6 and above\n\nnode-zipfile 0.1.x-0.2.x works with node v0.2-v0.4\n\nlibzip (optionally, otherwise will build against bundled version)\n\n\n## Installation\n\nYou can install the latest tag via npm:\n\n    npm install zipfile\n\nOr install from github master:\n\n    git clone git://github.com/springmeyer/node-zipfile.git\n    cd node-zipfile\n    ./configure\n    make\n    make install\n\n\n## Dynamically linking against libzip\n\nnode-zipfile depends on libzip, but by default\nbundles a copy in deps/ which is statically linked.\n\nIf you want to use an external libzip first install it:\n\nDebian:\n\n    sudo apt-get install libzip-dev libzip1\n\nOS X:\n  \n    brew install libzip\n\nOr from source:\n\n    wget http://nih.at/libzip/libzip-0.10.tar.bz2\n    tar xvf libzip-0.10.tar.bz2\n    cd libzip-0.10\n    ./configure\n    make\n    sudo make install\n\nThen on linux do:\n\n    sudo ldconfig\n\nNow, configure node-zipfile with the --shared-libzip option:\n \n    ./configure --shared-libzip\n\nIf you installed libzip in a custom location then configure like:\n  \n    ./configure --shared-libzip --libzip=/opt/local\n\nOtherwise /usr/ and /usr/local will be searched for libzip:\n\n    ./configure --shared-libzip\n    make\n    sudo make install\n    ./test.js\n\n## Building libzip with cmake on windows:\n\nNote: needs cygwin so the .sh shell scripts work that libzip cmake files call.\n\n    git clone git://github.com/springmeyer/node-zipfile.git\n    cd node-zipfile/deps/\n    bsdtar xvf libzip-0.10.tar.bz2\n    cd libzip\n    mkdir build_vc100\n    cd build_vc100\n    cmake -DZLIB_LIBRARY=c:\\dev2\\zlib\\zlib.lib -DZLIB_INCLUDE_DIR=c:\\dev2\\zlib -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release ..\\\n\nThen edit lib\\zipconf.h removing \'inttypes.h\' with:\n\n    #include <stdint.h>\n    #include <limits.h>\n\nFinally build libzip\n\n    nmake /f Makefile zip\n    \nThen compile node-zipfile:\n\n    TODO\n \n\n## License\n\n  BSD, see LICENSE.txt',
+242 silly resolved     readmeFilename: 'README.md',
+242 silly resolved     _id: 'zipfile@0.3.4',
+242 silly resolved     dist: { shasum: '3690fbaf1496dfec63abdc15b751d17e43120319' },
+242 silly resolved     _from: 'zipfile' } ]
+243 info install zipfile@0.3.4 into C:\Users\Sam\Desktop\TermProject6
+244 info installOne zipfile@0.3.4
+245 verbose from cache C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package\package.json
+246 info C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile unbuild
+247 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile\package.json
+248 verbose tar unpack C:\Users\Sam\AppData\Roaming\npm-cache\zipfile\0.3.4\package.tgz
+249 silly lockFile 858dc8af-ermProject6-node-modules-zipfile C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile
+250 verbose lock C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile C:\Users\Sam\AppData\Roaming\npm-cache\858dc8af-ermProject6-node-modules-zipfile.lock
+251 silly gunzTarPerm modes [ '755', '644' ]
+252 silly gunzTarPerm extractEntry package.json
+253 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+254 silly gunzTarPerm extractEntry .npmignore
+255 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+256 silly gunzTarPerm extractEntry README.md
+257 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+258 silly gunzTarPerm extractEntry test.js
+259 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+260 silly gunzTarPerm extractEntry deps/libzip-0.10.tar.bz2
+261 silly gunzTarPerm modified mode [ 'deps/libzip-0.10.tar.bz2', 438, 420 ]
+262 silly gunzTarPerm extractEntry include/zipfile/node_zipfile.h
+263 silly gunzTarPerm modified mode [ 'include/zipfile/node_zipfile.h', 438, 420 ]
+264 silly gunzTarPerm extractEntry lib/index.js
+265 silly gunzTarPerm modified mode [ 'lib/index.js', 438, 420 ]
+266 silly gunzTarPerm extractEntry lib/zipfile.js
+267 silly gunzTarPerm modified mode [ 'lib/zipfile.js', 438, 420 ]
+268 silly gunzTarPerm extractEntry LICENSE.txt
+269 silly gunzTarPerm modified mode [ 'LICENSE.txt', 438, 420 ]
+270 silly gunzTarPerm extractEntry bin/unzip.js
+271 silly gunzTarPerm modified mode [ 'bin/unzip.js', 438, 420 ]
+272 silly gunzTarPerm extractEntry wscript
+273 silly gunzTarPerm modified mode [ 'wscript', 438, 420 ]
+274 silly gunzTarPerm extractEntry binding.gyp
+275 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+276 silly gunzTarPerm extractEntry src/node_zipfile.cpp
+277 silly gunzTarPerm modified mode [ 'src/node_zipfile.cpp', 438, 420 ]
+278 silly gunzTarPerm extractEntry src/_zipfile.cc
+279 silly gunzTarPerm modified mode [ 'src/_zipfile.cc', 438, 420 ]
+280 silly gunzTarPerm extractEntry test/exceptions.test.js
+281 silly gunzTarPerm modified mode [ 'test/exceptions.test.js', 438, 420 ]
+282 silly gunzTarPerm extractEntry test/open.test.js
+283 silly gunzTarPerm modified mode [ 'test/open.test.js', 438, 420 ]
+284 silly gunzTarPerm extractEntry test/unicode.test.js
+285 silly gunzTarPerm modified mode [ 'test/unicode.test.js', 438, 420 ]
+286 silly gunzTarPerm extractEntry test/write.test.js
+287 silly gunzTarPerm modified mode [ 'test/write.test.js', 438, 420 ]
+288 silly gunzTarPerm extractEntry test/data/one.txt
+289 silly gunzTarPerm modified mode [ 'test/data/one.txt', 438, 420 ]
+290 silly gunzTarPerm extractEntry test/data/Archive/one.txt
+291 silly gunzTarPerm modified mode [ 'test/data/Archive/one.txt', 438, 420 ]
+292 silly gunzTarPerm extractEntry test/data/Archive/two.txt
+293 silly gunzTarPerm modified mode [ 'test/data/Archive/two.txt', 438, 420 ]
+294 silly gunzTarPerm extractEntry test/data/Clément/foo.csv
+295 silly gunzTarPerm modified mode [ 'test/data/Clément/foo.csv', 438, 420 ]
+296 silly gunzTarPerm extractEntry test/data/Clément/foo.csv.zip
+297 silly gunzTarPerm modified mode [ 'test/data/Clément/foo.csv.zip', 438, 420 ]
+298 silly gunzTarPerm extractEntry test/data/Clément/Olá.txt
+299 silly gunzTarPerm modified mode [ 'test/data/Clément/Olá.txt', 438, 420 ]
+300 silly gunzTarPerm extractEntry test/data/Clément/Olá.zip
+301 silly gunzTarPerm modified mode [ 'test/data/Clément/Olá.zip', 438, 420 ]
+302 silly gunzTarPerm extractEntry test/data/ééé/foo.csv
+303 silly gunzTarPerm modified mode [ 'test/data/ééé/foo.csv', 438, 420 ]
+304 silly gunzTarPerm extractEntry test/data/ééé/foo.csv.zip
+305 silly gunzTarPerm modified mode [ 'test/data/ééé/foo.csv.zip', 438, 420 ]
+306 silly gunzTarPerm extractEntry test/data/folder.zip
+307 silly gunzTarPerm modified mode [ 'test/data/folder.zip', 438, 420 ]
+308 silly gunzTarPerm extractEntry test/data/invalid.zip
+309 silly gunzTarPerm modified mode [ 'test/data/invalid.zip', 438, 420 ]
+310 silly gunzTarPerm extractEntry test/data/Archive.zip
+311 silly gunzTarPerm modified mode [ 'test/data/Archive.zip', 438, 420 ]
+312 silly gunzTarPerm extractEntry test/data/points.csv.zip
+313 silly gunzTarPerm modified mode [ 'test/data/points.csv.zip', 438, 420 ]
+314 silly gunzTarPerm extractEntry test/data/test.zip
+315 silly gunzTarPerm modified mode [ 'test/data/test.zip', 438, 420 ]
+316 silly gunzTarPerm extractEntry test/data/two.txt
+317 silly gunzTarPerm modified mode [ 'test/data/two.txt', 438, 420 ]
+318 silly gunzTarPerm extractEntry test/data/world_merc.zip
+319 silly gunzTarPerm modified mode [ 'test/data/world_merc.zip', 438, 420 ]
+320 silly gunzTarPerm extractEntry test/data/你好_points.csv
+321 silly gunzTarPerm modified mode [ 'test/data/你好_points.csv', 438, 420 ]
+322 silly gunzTarPerm extractEntry test/tmp/placeholder.txt
+323 silly gunzTarPerm modified mode [ 'test/tmp/placeholder.txt', 438, 420 ]
+324 silly gunzTarPerm extractEntry configure
+325 silly gunzTarPerm modified mode [ 'configure', 438, 420 ]
+326 silly gunzTarPerm extractEntry tools/cpp.el
+327 silly gunzTarPerm modified mode [ 'tools/cpp.el', 438, 420 ]
+328 silly gunzTarPerm extractEntry tools/fix_cpp_style.sh
+329 silly gunzTarPerm modified mode [ 'tools/fix_cpp_style.sh', 438, 420 ]
+330 silly gunzTarPerm extractEntry vcbuild.bat
+331 silly gunzTarPerm modified mode [ 'vcbuild.bat', 438, 420 ]
+332 silly gunzTarPerm extractEntry Makefile
+333 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+334 verbose read json C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile\package.json
+335 silly lockFile 858dc8af-ermProject6-node-modules-zipfile C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile
+336 info preinstall zipfile@0.3.4
+337 verbose from cache C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile\package.json
+338 verbose readDependencies using package.json deps
+339 verbose from cache C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile\package.json
+340 verbose readDependencies using package.json deps
+341 silly resolved []
+342 verbose about to build C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile
+343 info build C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile
+344 verbose from cache C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile\package.json
+345 verbose linkStuff [ false,
+345 verbose linkStuff   false,
+345 verbose linkStuff   false,
+345 verbose linkStuff   'C:\\Users\\Sam\\Desktop\\TermProject6\\node_modules' ]
+346 info linkStuff zipfile@0.3.4
+347 verbose linkBins zipfile@0.3.4
+348 verbose link bins [ { 'unzip.js': './bin/unzip.js' },
+348 verbose link bins   'C:\\Users\\Sam\\Desktop\\TermProject6\\node_modules\\.bin',
+348 verbose link bins   false ]
+349 verbose linkMans zipfile@0.3.4
+350 verbose rebuildBundles zipfile@0.3.4
+351 info install zipfile@0.3.4
+352 verbose unsafe-perm in lifecycle true
+353 silly exec cmd "/c" "node-waf configure build"
+354 silly cmd,/c,node-waf configure build,C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile spawning
+355 info zipfile@0.3.4 Failed to exec install script
+356 info C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile unbuild
+357 verbose from cache C:\Users\Sam\Desktop\TermProject6\node_modules\zipfile\package.json
+358 info preuninstall zipfile@0.3.4
+359 info uninstall zipfile@0.3.4
+360 verbose true,C:\Users\Sam\Desktop\TermProject6\node_modules,C:\Users\Sam\Desktop\TermProject6\node_modules unbuild zipfile@0.3.4
+361 verbose C:\Users\Sam\Desktop\TermProject6\node_modules\.bin,[object Object] binRoot
+362 info postuninstall zipfile@0.3.4
+363 error zipfile@0.3.4 install: `node-waf configure build`
+363 error `cmd "/c" "node-waf configure build"` failed with 1
+364 error Failed at the zipfile@0.3.4 install script.
+364 error This is most likely a problem with the zipfile package,
+364 error not with npm itself.
+364 error Tell the author that this fails on your system:
+364 error     node-waf configure build
+364 error You can get their info via:
+364 error     npm owner ls zipfile
+364 error There is likely additional logging output above.
+365 error System Windows_NT 6.2.9200
+366 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "zipfile"
+367 error cwd C:\Users\Sam\Desktop\TermProject6
+368 error node -v v0.8.16
+369 error npm -v 1.1.69
+370 error code ELIFECYCLE
+371 verbose exit [ 1, true ]

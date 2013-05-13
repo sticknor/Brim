@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style/reset.css">
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400' rel='stylesheet' 
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:700' rel='stylesheet' 
+          type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <title>
+    BRIM: Tactile Imaging
+  </title>
+  <body id = "home">
+    <div class = "topBar">
+      <div id = "bar">
+        <a href = index.html>
+          <span id = "logo">
+            .:BRIM:.
+          </span>
+        </a>
+        <span id = "login">
+        <span id = "logoutButton" class = "homePageButton button roundedCorners">
+          Log Out
+        </span>
+      </span>
+      </div>
+    </div>
+    <div class = "container">
+      <div id = "welcome" class = "roundedCorners">
+      </div>
+      <div id = "preIntroductionUser"  class = "roundedCorners">  
+        <div id = "homeTop">
+          <img src = "style/ele.png" id = "eleUser">  
+          <span id = "homeTopButtons">
+            <a href = "genImage1.html">
+              <div id ="genImg" class = "homePageButton button roundedCorners">
+                Generate Tactile Image
+              </div>
+            </a>  
+            <a href = "browseYours.html">
+              <div id = "browseImg" class = "homePageButton button roundedCorners">
+                Browse Your Images
+              </div>
+            </a>
+            <a href = "browse.html">
+              <div id = "browseImg" class = "homePageButton button roundedCorners">
+                Browse Our Images
+              </div>
+            </a>
+          </span>
+        </div>
+      </div>
+              
+      <div id = "introduction" class = "roundedCorners">
+        <h1>
+          What is BRIM?
+        </h1>
+        BRIM is a web-app designed to facilitate the creation of tactile graphics for the blind. 
+        You can easily generate printable braille graphics by uploading an image or pasting a URL.
+        This tool was created using research done by Carnegie Mellon University and TechBridgeWorld. 
+        <a href = "learnMore.html">
+          <div id = "learnMore" class = "homePageButton button roundedCorners">
+            Learn More
+            <div id = "arrowImg"></div> 
+          </div>
+        </a>
+      </div> 
+    
+    </div>      
+  </body>
+  <script src="scripts/jquery-1.9.0.js"></script>
+  <script src="scripts/addTappableJQPlugin.js"></script>
+    <script src="scripts/logout.js"></script>
+  <script src="scripts/home.js"></script>
+  <script>
+    var userWelcome = $('#welcomeUser');
+    var username;
+    function getMe(){
+      $.ajax({
+        type: "get",
+        url: "/me",
+        success: function(data){
+          username = data.username;
+          $('#welcome').html("Welcome "+username+"!");
+        }  
+      });
+    }
+    getMe();
+    
+    </script>
+</html>
