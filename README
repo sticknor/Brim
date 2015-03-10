@@ -1,5 +1,12 @@
 README
 
+BRIM is a cross platform mobile web app that allows users to represent images using Braille characters.  
+It was designed to aid instructors and students who are vision impaired. 
+The .txt files that it generates can be used to print low-cost tactile graphics using a standard braille printer. 
+
+
+
+
 To use the application, simply run a mongo server and a node server using app.js and visit localhost:8889/home.html.
 
 
